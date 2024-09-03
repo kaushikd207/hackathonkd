@@ -1,6 +1,7 @@
 import React from "react";
 import RocketIcon from "./assets/rocketIcon.svg";
 import AiIcon from "./assets/aiIcon.svg";
+import CardsViewPage from "./CardsViewPage"
 const HeroPage = () => {
   return (
     <>
@@ -33,6 +34,7 @@ const HeroPage = () => {
           <div className="iconGroup border-2 w-[100%] border-white"></div>
         </div>
       </div>
+      <CardsViewPage />
     </>
   );
 };
