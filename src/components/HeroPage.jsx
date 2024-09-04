@@ -1,12 +1,14 @@
 import React from "react";
 import RocketIcon from "./assets/rocketIcon.svg";
 import AiIcon from "./assets/aiIcon.svg";
-import CardsViewPage from "./CardsViewPage"
+import CardsViewPage from "./CardsViewPage";
+import { useNavigate } from "react-router-dom";
 const HeroPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="bg-[#003145] h-[635px] w-[100%] flex flex-wrap">
-        <div className="h-[262px] w-[643px] border-2 border-red-400bg-[#003145] absolute top-[188px] left-[143px]">
+        <div className="h-[262px] w-[643px] bg-[#003145] absolute top-[188px] left-[143px]">
           <h2 className="font-semibold leading-[56px] text-white text-5xl text-left">
             Accelerate Innovation<br></br>with Global AI Challenges
           </h2>
@@ -15,6 +17,12 @@ const HeroPage = () => {
             place to put your AI/Data Science skills to test on diverse datasets
             allowing you to foster learning through competitions{" "}
           </p>
+          <button
+            onClick={() => navigate("/admin")}
+            className="bg-white rounded-lg h-[47px] w-[198px] mt-[40px]"
+          >
+            Create Challenge
+          </button>
         </div>
         <div className="w-1 h-[105px] bg-[yellow] absolute top-[190px] left-[100px]"></div>
         <div className="absolute top-[170px] left-[1050.34px]">

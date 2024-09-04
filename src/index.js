@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Form from "./components/Form";
+import Form from "./components/AddEditDataForm";
 import HeroPage from "./components/HeroPage";
+import CardDetailsPage from "./components/CardDetailsPage";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import AddDataForm from "./components/AddEditDataForm";
+import AddEditDataForm from "./components/AddEditDataForm";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -21,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <Form />,
+        element: <AddEditDataForm />,
+      },
+      {
+        path: "/cardDetails",
+        element: <CardDetailsPage />,
       },
     ],
   },

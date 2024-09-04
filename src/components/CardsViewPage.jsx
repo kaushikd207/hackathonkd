@@ -7,7 +7,7 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-
+import { useSelector } from "react-redux";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -20,13 +20,15 @@ const MenuProps = {
 };
 
 const names = ["All", "Active", "Upcoming", "Past", "Easy", "Medium", "Hard"];
-const data = [
+export const data = [
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card5.png?updatedAt=1725439452239",
     status: "Upcoming",
     details: "Data Science Bootcamp-Graded Datathon",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows. An agency of the Governmental Wildlife Conservation is planning to implement an automated system based on computer vision so that it can identify butterflies based on captured images. As a consultant for this project, you are responsible for developing an efficient model.",
   },
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card4.png?updatedAt=1725439452203",
@@ -34,6 +36,8 @@ const data = [
     details: "Data Sprint 72 - Butterfly Identification",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card6.png?updatedAt=1725439452144",
@@ -41,6 +45,8 @@ const data = [
     details: "Data Sprint 71 - Weather Recognition",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card3.png?updatedAt=1725439452111",
@@ -48,6 +54,8 @@ const data = [
     details: "Data Sprint 71 - Airline Passenger Satisfaction",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card2.png?updatedAt=1725439452098",
@@ -55,6 +63,8 @@ const data = [
     details: "Engineering Graduates Employment Outcomes",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
   {
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card1.png?updatedAt=1725439451980",
@@ -62,14 +72,16 @@ const data = [
     details: "Travel Insurance Claim prediction",
     startDate: "",
     endDate: "",
+    overview:
+      "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
 ];
 
 const CardsViewPage = () => {
+  const updateData = useSelector((state) => state?.allDataSlice?.data);
   const [statusName, setstatusName] = React.useState([]);
   const [searchInput, setSearchInput] = React.useState("");
-  const [searchfilterData, setSearchFilterData] = React.useState(data);
-
+  const [searchfilterData, setSearchFilterData] = React.useState(updateData);
   const handleInput = (e) => {
     const inputValue = e.target.value;
     setSearchInput(inputValue);
@@ -148,8 +160,8 @@ const CardsViewPage = () => {
           </div>
         </div>
       </div>
-      <div className="h-[1196px] bg-[#003145] flex justify-center items-center">
-        <div className="w-[1172px] h-[996px] flex flex-wrap justify-between">
+      <div className=" bg-[#003145] flex justify-center items-center">
+        <div className="w-[1172px] flex flex-wrap justify-between">
           {searchfilterData?.map((d, index) => (
             <Card key={index} data={d} />
           ))}
