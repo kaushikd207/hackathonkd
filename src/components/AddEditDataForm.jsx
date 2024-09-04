@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setData } from "./Reducers/activeDataSlice";
-
-const AddEditDataForm = ({ existingData, editingData, onCancel }) => {
+import { setData } from "./Reducers/allDataSlice";
+import { data } from "./CardsViewPage";
+import { useNavigate } from "react-router-dom";
+const AddEditDataForm = ({ editingData, onCancel }) => {
+  const navigate = useNavigate();
   const [challengeName, setChallengeName] = useState("");
   const [description, setDescription] = useState("");
   const [overview, setOverview] = useState("");
@@ -38,11 +40,12 @@ const AddEditDataForm = ({ existingData, editingData, onCancel }) => {
     let updatedData;
 
     if (editingData) {
-      updatedData = existingData.map((item) =>
+      updatedData = data.map((item) =>
         item.details === editingData.details ? newCard : item
       );
     } else {
-      updatedData = [...existingData, newCard];
+      updatedData = [...data, newCard];
+      navigate("/");
     }
 
     dispatch(setData(updatedData));
@@ -52,8 +55,6 @@ const AddEditDataForm = ({ existingData, editingData, onCancel }) => {
       setOverview("");
       setImage("");
     }
-
-    onCancel();
   };
 
   return (
