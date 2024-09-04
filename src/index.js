@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Form from "./components/Form";
 import HeroPage from "./components/HeroPage";
+import { Provider } from "react-redux";
+import { store } from "./store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-root.render(<RouterProvider router={router}></RouterProvider>);
+root.render(
+  <Provider store={store}>
+    <RouterProvider router={router}></RouterProvider>
+  </Provider>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
