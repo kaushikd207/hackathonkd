@@ -5,9 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Form from "./components/Form";
-
 import HeroPage from "./components/HeroPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 root.render(<RouterProvider router={router}></RouterProvider>);
 
 // If you want to start measuring performance in your app, pass a function
