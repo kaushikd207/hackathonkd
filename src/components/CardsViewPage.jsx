@@ -25,8 +25,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card5.png?updatedAt=1725439452239",
     status: "Upcoming",
     details: "Data Science Bootcamp-Graded Datathon",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows. An agency of the Governmental Wildlife Conservation is planning to implement an automated system based on computer vision so that it can identify butterflies based on captured images. As a consultant for this project, you are responsible for developing an efficient model.",
   },
@@ -34,8 +35,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card4.png?updatedAt=1725439452203",
     status: "Upcoming",
     details: "Data Sprint 72 - Butterfly Identification",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
@@ -43,8 +45,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card6.png?updatedAt=1725439452144",
     status: "Active",
     details: "Data Sprint 71 - Weather Recognition",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
@@ -52,8 +55,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card3.png?updatedAt=1725439452111",
     status: "Active",
     details: "Data Sprint 71 - Airline Passenger Satisfaction",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
@@ -61,8 +65,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card2.png?updatedAt=1725439452098",
     status: "Past",
     details: "Engineering Graduates Employment Outcomes",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
@@ -70,8 +75,9 @@ export const data = [
     img: "https://ik.imagekit.io/h9iiik5xg8/cardimage/card1.png?updatedAt=1725439451980",
     status: "Past",
     details: "Travel Insurance Claim prediction",
-    startDate: "",
-    endDate: "",
+    startTime: "2024-09-05T12:30",
+    endTime: "2024-09-06T13:30",
+    level: "Easy",
     overview:
       "Butterflies are the adult flying stage of certain insects belonging to an order or group called Lepidoptera. The word Lepidoptera means scaly wings in Greek. This name perfectly suits the insects in this group because their wings are covered with thousands of tiny scales overlapping in rows.",
   },
@@ -119,7 +125,7 @@ const CardsViewPage = () => {
   return (
     <>
       <div className="h-[324px] bg-[#002A3B] ">
-        <h2 className="text-white text-xl flex items-center justify-center">
+        <h2 className="text-white text-xl pt-[64px] flex items-center justify-center">
           Explore Challenges
         </h2>
         <div className="flex justify-center items-center">

@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { editData } from "./Reducers/activeDataSlice";
 import { setData } from "./Reducers/allDataSlice";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const CardDetailsPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,8 @@ const CardDetailsPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editDetails, setEditDetails] = useState(cardDetailsData?.details);
   const [editOverview, setEditOverview] = useState(cardDetailsData?.overview);
+
+  const [remainingTime, setRemainingTime] = useState("");
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -25,7 +27,6 @@ const CardDetailsPage = () => {
         details: editDetails,
         overview: editOverview,
       };
-
 
       dispatch(editData(updatedData));
 
@@ -47,11 +48,41 @@ const CardDetailsPage = () => {
       navigate("/");
     }
   };
+  const calculateRemainingTime = (endTime) => {
+    const currentTime = new Date();
+    const end = new Date(endTime);
+
+    const difference = end - currentTime; 
+
+    if (difference <= 0) {
+      return "Time's up!";
+    }
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+    return `${days}d ${hours}h ${minutes}m remaining`;
+  };
+
+  useEffect(() => {
+    if (cardDetailsData?.endTime) {
+ 
+      setRemainingTime(calculateRemainingTime(cardDetailsData?.endTime));
+      const interval = setInterval(() => {
+        setRemainingTime(calculateRemainingTime(cardDetailsData?.endTime));
+      }, 60000);
+
+      return () => clearInterval(interval); 
+    }
+  }, [cardDetailsData?.endTime]);
 
   return (
     <>
       <div className="h-[419px] bg-[#003145]">
         <div className="h-[228px] ml-[126px] mt-[160px] absolute">
+          <p className=" bg-yellow-300 w-[464px]">{remainingTime}</p>
           {isEditing ? (
             <>
               <input

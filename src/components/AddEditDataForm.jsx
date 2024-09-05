@@ -3,12 +3,16 @@ import { useDispatch } from "react-redux";
 import { setData } from "./Reducers/allDataSlice";
 import { data } from "./CardsViewPage";
 import { useNavigate } from "react-router-dom";
+
 const AddEditDataForm = ({ editingData, onCancel }) => {
   const navigate = useNavigate();
   const [challengeName, setChallengeName] = useState("");
   const [description, setDescription] = useState("");
   const [overview, setOverview] = useState("");
   const [image, setImage] = useState("");
+  const [level, setLevel] = useState("Easy"); // Default to Easy
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,6 +21,9 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
       setDescription(editingData.status || "");
       setOverview(editingData.overview || "");
       setImage(editingData.img || "");
+      setLevel(editingData.level || "Easy"); // Load level if editing
+      setStartTime(editingData.startTime || "");
+      setEndTime(editingData.endTime || "");
     }
   }, [editingData]);
 
@@ -32,8 +39,9 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
       img: image,
       status: description,
       details: challengeName,
-      startDate: "",
-      endDate: "",
+      level: level, // Add level to the card data
+      startTime: startTime, // Add start time
+      endTime: endTime, // Add end time
       overview: overview,
     };
 
@@ -49,16 +57,21 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
     }
 
     dispatch(setData(updatedData));
+
     if (!editingData) {
       setChallengeName("");
       setDescription("");
       setOverview("");
       setImage("");
+      setLevel("Easy");
+      setStartTime("");
+      setEndTime("");
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-4 rounded-md  w-[80%]">
+      {/* Challenge Name */}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Challenge Name
@@ -71,6 +84,8 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
           required
         />
       </div>
+
+      {/* Description (Status) */}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Description (Status)
@@ -83,6 +98,8 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
           required
         />
       </div>
+
+      {/* Overview */}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Overview
@@ -94,6 +111,50 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
           required
         />
       </div>
+
+      {/* Level */}
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Level
+        </label>
+        <select
+          value={level}
+          onChange={(e) => setLevel(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
+
+      {/* Start Time */}
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Start Time
+        </label>
+        <input
+          type="datetime-local"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+
+      {/* End Time */}
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          End Time
+        </label>
+        <input
+          type="datetime-local"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+
+      {/* Image Upload */}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Upload Image
@@ -104,6 +165,8 @@ const AddEditDataForm = ({ editingData, onCancel }) => {
           className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
         />
       </div>
+
+      {/* Submit Button */}
       <div className="flex items-center justify-between">
         <button
           type="submit"
