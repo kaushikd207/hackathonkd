@@ -1,3 +1,15 @@
+Used Redux to store management
+Used React-Router-Dom for routing
+Used tailwind css for adding style
+
+Here is a video how this application work
+
+
+
+
+https://github.com/user-attachments/assets/45a64ab0-da2b-48bd-9394-5b1b063d136d
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
