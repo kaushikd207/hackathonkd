@@ -73,7 +73,7 @@ const HeroPage = () => {
         </div>
       </div>
       <div className="h-[902px] flex flex-col justify-center items-center">
-        <h1 className="font-bold text-[32px]">
+        <h1 className="font-bold text-[32px] mb-[70px]">
           Why Participate in{" "}
           <span className="text-green-700 text-[32px]">AI Challenges?</span>
         </h1>
